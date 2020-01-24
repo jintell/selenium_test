@@ -4,10 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
+import java.io.IOException;
 
 public class TestSelenium {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, InterruptedException  {
 		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 		ChromeOptions chromeOptions = new ChromeOptions();
 		//chromeOptions.addArguments("--headless");
@@ -17,12 +18,12 @@ public class TestSelenium {
 
 		System.out.println("Hi, Welcome to Josleke Selenium Test");
 
-		driver.get("https://google.com");
+		driver.get("http://localhost:8080");
 
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		driver.findElement(By.id("gb_70")).click();
+		driver.findElement(By.id("about-us")).click();
 
-	//	Thread.sleep(1000);
+		Thread.sleep(1000);
 		driver.quit();
 	}
 }
